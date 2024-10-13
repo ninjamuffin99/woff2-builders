@@ -24,12 +24,7 @@ jobs:
                 mkdir build
                 cd build
                 cmake .. \
-                    -DCMAKE_BUILD_TYPE=Release \
-                    -DBROTLI_DIR=$GITHUB_WORKSPACE/brotli/build \
-                    -DBROTLIDEC_INCLUDE_DIRS=$GITHUB_WORKSPACE/brotli/c/include \
-                    -DBROTLIENC_INCLUDE_DIRS=$GITHUB_WORKSPACE/brotli/c/include \
-                    -DBROTLIDEC_LIBRARIES=$GITHUB_WORKSPACE/brotli/c/out/libbrotlidec.a \
-                    -DBROTLIENC_LIBRARIES=$GITHUB_WORKSPACE/brotli/c/out/libbrotlienc.a
+                    -DBROTLI_DIR=$GITHUB_WORKSPACE/brotli/build 
             - run: make
             - run: ls -l
             - uses: actions/upload-artifact@v4
