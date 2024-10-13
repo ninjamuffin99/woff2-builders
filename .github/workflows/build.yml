@@ -20,12 +20,14 @@ jobs:
                   cmake .. -DCMAKE_BUILD_TYPE=Release
                   cmake --build .
                   cd ../..
+              shell: bash
             - run: |
                 mkdir build
                 cd build
                 cmake .. \
                     -DCMAKE_BUILD_TYPE=Release \
                     -DBROTLI_DIR=$GITHUB_WORKSPACE/brotli/build 
+              shell: bash
             - name: Build
               run: cmake --build build --config Release
             - run: ls -l
