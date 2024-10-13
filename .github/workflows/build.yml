@@ -13,13 +13,9 @@ jobs:
               with:
                 repository: 'google/woff2'
                 submodules: true
-            - run: mkdir out-static
-            - run: cd out-static
-            - run: cmake -DBUILD_SHARED_LIBS=OFF ..
-            - run: make
-            - run: make install
+            - run: make install all
             - run: ls -l
             - uses: actions/upload-artifact@v4
               with:
-                name: woff2
-                path: out-static
+                name: woff2-{{ matrix.target}}
+                path: woff2_compress
