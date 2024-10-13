@@ -1,0 +1,17 @@
+name: Build woff2 for all platforms
+
+on: workflow_dispatch
+
+jobs:
+    build:
+        strategy:
+            matrix:
+             target: [linux, windows, macos]
+        runs-on: ${{ matrix.target }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                repository: 'google/woff2'
+                submodules: true
+            - run: make clean all
+            - run: ls -l
