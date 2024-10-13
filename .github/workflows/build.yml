@@ -13,5 +13,12 @@ jobs:
               with:
                 repository: 'google/woff2'
                 submodules: true
-            - run: make clean all
+            - run: mkdir out-static
+            - run: cmake -DBUILD_SHARED_LIBS=OFF ..
+            - run: make
+            - run: make install
             - run: ls -l
+            - uses: actions/upload-artifact@v4
+              with:
+                name: woff2
+                path: out-static
