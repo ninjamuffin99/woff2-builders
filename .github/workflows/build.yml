@@ -14,6 +14,7 @@ jobs:
                 repository: 'google/woff2'
                 submodules: true
             - run: mkdir out-static
+            - run: cd out-static
             - run: cmake -DBUILD_SHARED_LIBS=OFF ..
             - run: make
             - run: make install
