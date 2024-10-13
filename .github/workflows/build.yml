@@ -6,7 +6,7 @@ jobs:
     build:
         strategy:
             matrix:
-             target: [linux, windows, macos]
+             target: [ubuntu-latest, windows-latest, macos-latest]
         runs-on: ${{ matrix.target }}
         steps:
             - uses: actions/checkout@v4
