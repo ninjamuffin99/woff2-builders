@@ -1,6 +1,6 @@
 name: Build woff2 for all platforms
 
-on: workflow_dispatch
+on: push
 
 jobs:
     build:
@@ -17,5 +17,5 @@ jobs:
             - run: ls -l
             - uses: actions/upload-artifact@v4
               with:
-                name: woff2-{{ matrix.target}}
+                name: woff2-${{matrix.target}}
                 path: woff2_compress
